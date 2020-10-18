@@ -1,15 +1,22 @@
-Pruebe la ley de los números grandes para N números aleatorios normalmente distribuidos con media = 0, stdev = 1:
-
-Cree una secuencia de comandos R que cuente cuántos de estos números se encuentran entre -1 y 1 y divida
-por la cantidad total de N
-
-Sabes que E (X) = 68,2%
-Compruebe que Mean (Xn) -> E (X) mientras vuelve a ejecutar su script mientras aumenta N
-
-Insinuación:
-1. Inicializar el tamaño de la muestra
-2. Inicializar contador
-3. bucle para (i en rnorm (tamaño))
-4. Verifique si la variable iterada cae
-5. Aumente el contador si la condición es verdadera
-6. devuelve un resultado <- contador / N
+#1. Initialize the sample size
+Xn <- .68
+#We assign the sample value to 100
+sampleSize <- 100
+#2. Initialize the counter to 0 just to ensure it start from the beginning
+counter <- 0
+#3. Loop for (i in rnorm (size)) it make i worth a value from the distribution function (mean = 0, stdev = 1)
+for(i in rnorm(sampleSize))
+  {
+  #4. Check if iterated variable drops with the if conditional that is between values -1 and 1 
+  if(i >= -1 && 1 <= 1){
+    #5. Increase the counter if the condition is true
+    counter <- counter + 1
+  }
+  
+}
+#6. Returns a result <- counter / N
+res <- counter/sampleSize
+#Now we print the results of the division
+res
+#And we verified if the results it's equal to Xn (68%)
+res == Xn
