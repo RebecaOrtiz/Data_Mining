@@ -15,58 +15,83 @@ typeof()
 sqrt()
 paste()
 
-La funcion "ls()" lista los objetos en memoria: solo muestra los nombres de los mismos
-ls()
-
-La funcion "ls.str()" muestra algunos detalles de los objetos en memoria
-ls.str()
-
-Esta funcion elimina objetos 
-rm()
-
-Nos mostrara ayuda para la funcion 
-lm()
-help()
-
-Para mirar ayuda en formato htpl
+#1.- To see help in htpl format
 help.start()
 
-La funcion "apropos" encuentra todas aquellas funciones cuyo nombre contiene la palabra dada
-apropos(help)
+#2.-To know which is the directory where you are working
+getwd ()
 
-Para ver el tipo y la longitud de un objeto 
-mode()
-length()
+#3.- To change the working directory
+setwd ("C: / data")
+setwd ("/ home / nomcarpeta / nomcarpeta") 
 
-Para saber cual es el directorio en donde se esta trabajando 
-getwd()
+#4.- This function saves the content of an object in a file
+write.table (v)
 
-Para cambiar el directorio de trabajo
-setwd("C:/data")
-setwd("/home/rebeca/ejercicio")
-
-Esta funcion cre un marco de datos(data frame) y constituye la manera mas usual de leer datos en forma tabular
-read.table(archivo.dat)
-
-Esta funcion guarda el contenido de un objeto en un archivo
-write.table()
-
-Para generar una secuencia regular de numeros enteros
+#5.- To generate a regular sequence of whole numbers
 1:30
-1:10-1
+1: 10-1
 
-Para generarsecuencias de numeros reales
-seq(1, 5, 0.5)
+#6.- To generate sequences of real numbers
+seq (1, 5, 0.5)
 
-Esta funcion crea un vector con elementos identicos
-rep(1, 30)
+#7.- This function creates a vector with identical elements
+rep (1, 7)
 
-Genera series regulares de factores.
-gl(k, n) donde k es el numero de niveles o clases , y n es el numero de replicas en cada nivel 
+#8.- Generate regular series of factors.
+gl (k, n) where k is the number of levels or classes, and n is the number of replicates in each level
 
-gl(5, 3)
+gl (5, 3)
 
-Crea un marco de datos con todas las combinaciones de vectores o factores proporcionados como argumentos 
+#9.- To view the type and length of an object
+v <- c (1,2,3,4,100)
+#type
+mode(v)
+
+#length
+length(v)
+
+#10.- The rev (v) function, returns the value in an inverted way
+v <- c (14, 82, 3, 90)
+#We show normally
+v
+#We show using the function
+rev (v)
+
+#11.- The function "ls.str ()" shows some details of the objects in memory
+ls.str()
+
+#12.- This function removes items from a list
+v <- c (14, 82, 3, 90)
+rm(v)
+
+#13.- This function calculates the factorial
+v <- 3
+factorial(v)
+
+#14.- This function compute the exponential value of a number 
+v <- 3
+exp(v)
+
+#15.- This function converts the text into uppercase
+v <- "Hi, I'm Rebeca"
+toupper (v)
+
+#16.- This function converts the text to lowercase
+tolower (v)
+
+#17.- This function defines the number of decimal places to be used.
+r <- 3.1416
+round (r, 2)
+
+#18.- This function calculates the absolute value
+v <- c (-7,33,8, -45,-16)
+abs (v)
+
+#19.- This function   the diagonal of a matrix
+diag(2,4,6)
+
+#20.- Creates a data frame with all combinations of vectors or factors supplied as arguments
 expand.grid()
 
 
