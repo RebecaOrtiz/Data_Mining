@@ -84,7 +84,7 @@ merged13 <- merge(stats2013, dfmerge13, by.x = "Country.Code", by.y = "Country")
 
 
 #### 5.- También se le ha pedido que proporcione información sobre cómo se comparan los dos períodos. 
-#(Hint: Basicamente la expricacion de sus observaciones)
+#(Hint: Basicamente la expricacion de sus observaciones).
 
 Nota:
 Los archivos para realizar esta practica que son CountryRegionVectors.R y
