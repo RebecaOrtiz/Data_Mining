@@ -11,10 +11,35 @@ Regions).
 Se le han proporcionado datos durante 2 años: 1960 y 2013 y se le exige que
 produzca una visualización para cada uno de estos años.
 
-Algunos datos se han proporcionado en un archivo CVS, algunos en vectores R. El
-archivo CVS contiene datos combinados de ambos años. Toda manipulación de datos
-debe realizarse en R (No en Excel) porque este proyecto puede ser auditado en una
-etapa posterior.
+#### 4.- Algunos datos se han proporcionado en un archivo CVS, algunos en vectores R. El
+#archivo CVS contiene datos combinados de ambos años. Toda manipulación de datos
+#debe realizarse en R (No en Excel) porque este proyecto puede ser auditado en una
+#etapa posterior.
+
+
+#Ambos años 
+dfmerge <- data.frame(Country= Country_Code, Life_Expectancy_1960=Life_Expectancy_At_Birth_1960, Life_Expectancy_2013=Life_Expectancy_At_Birth_2013)
+
+head(stats)
+head(dfmerge)
+
+merged <- merge(stats, dfmerge, by.x = "Country.Code", by.y = "Country")
+head(merged)
+
+#Marcos de datos por año
+stats1960 <- stats[stats$Year == 1960]
+stats2013 <- stats[stats$Year == 2013]
+
+#Esperanza de vida 
+dfmerge60 <- data.frame(Country= Country_Code, Life_Expectancy_1960=Life_Expectancy_At_Birth_1960)
+dfmerge13 <- data.frame(Country= Country_Code, Life_Expectancy_2013=Life_Expectancy_At_Birth_2013)
+
+
+#Merge por año
+merged60 <- merge(stats1960, dfmerge60, by.x = "Country.Code", by.y = "Country")
+merged13 <- merge(stats2013, dfmerge13, by.x = "Country.Code", by.y = "Country")
+
+
 
 También se le ha pedido que proporcione información sobre cómo se comparan los
 dos períodos. (Hint: Basicamente la expricacion de sus observaciones)
@@ -62,6 +87,5 @@ qplot(data=merge.dataframe_life.CountriesAndRegion, x=Fertility.Rate, y=Life.exp
 
 #Differentiated by year
 qplot(data=merge.dataframe_life.CountriesAndRegion, x=Fertility.Rate, y=Life.expectancy, color=Year, size=I(2), main = "Differentiated by year")
-
 
 
