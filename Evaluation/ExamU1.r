@@ -103,8 +103,4 @@ merged13 <- merge(stats2013, dfmerge13, by.x = "Country.Code", by.y = "Country")
 
 #In conclusion, it can be said that in countries the higher the life expectancy, the lower the fertility rate.
 
-#Note:
- # The files to perform this practice are CountryRegionVectors.R and
-#DataFrameEvaluation_Data.csv is located in the Google Drive folder
-#Shared Resources / Information_UI:
 
