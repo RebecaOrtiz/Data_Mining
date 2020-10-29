@@ -1,9 +1,9 @@
-El Banco Mundial quedó muy impresionado con su entrega en la asignación anterior y
-tienen un nuevo proyecto para usted.
+#The World Bank was very impressed with their delivery in the previous allocation and
+#they have a new project for you.
 
-#### 1.- Debe generar un diagrama de dispersión (scatter-plot) que muestre las estadísticas
-#de esperanza de vida ( Life expectancy - eje y) y tasa de fertilidad (Fertility Rate -eje
-#x) por país (Country).
+#### 1.- You must generate a scatter-plot that shows the statistics
+# of life expectancy (Life expectancy - y-axis) and fertility rate (Fertility Rate -axis
+#x) by country (Country).
 
 #Install ggplot2
 install.packages("ggplot2")
@@ -19,30 +19,30 @@ Life_Expectancy_At_Birth_2013 <- c(75.3286585365854,60.0282682926829,51.86617073
 
 
 
-#Estadisticas 1960
+#Statistics 1960
 qplot(data = merged, y=Life_Expectancy_1960, x=Fertility.Rate,
             color=Country.Name, size=I(1), shape=I(15), alpha = I(.4), 
             main = "Life expectancy & Fertility Rate 1960")
 
-#Estadisticas 2013
+#Statistics 2013
 qplot(data = merged, y=Life_Expectancy_2013, x=Fertility.Rate,
             color=Country.Name, size=I(1), shape=I(15), alpha = I(.4), 
             main = "Life expectancy & Fertility Rate 2013")
 
 
-#### 2- El diagrama de dispersión también debe clasificarse por países Regiones (Country Regions).
+#### 2- The scatterplot should also be classified by Country Regions.
 
-#Clasificacion por pais 1960
+#Classification by country 1960
 qplot(data = merged, x = Fertility.Rate, y = Life_Expectancy_1960,
               color = Region, size=I(2), shape=I(15), alpha = I(.4), main = "Country Regions 1960")
 
-#Clasificacion por pais 2013
+#Classification by country 2013
 qplot(data = merged, x = Fertility.Rate, y = Life_Expectancy_2013,
               color = Region, size=I(2), shape=I(15), alpha = I(.4), main = "Country Regions 2013")
 
 
 
-#### 3.- Se le han proporcionado datos durante 2 años: 1960 y 2013 y se le exige que produzca una visualización para cada uno de estos años.
+#### 3.- You have been provided data for 2 years: 1960 and 2013 and you are required to produce a visualization for each of these years.
 
 
 #Fertility Rate 1960
@@ -62,13 +62,13 @@ y2013
 qplot(data = y2013, x = Region , y = Fertility.Rate, 
               color = Region, size=I(2), shape=I(15), alpha = I(.4), main = " Fertility Rate 2013")
 
-#### 4.- Algunos datos se han proporcionado en un archivo CVS, algunos en vectores R. El
-#archivo CVS contiene datos combinados de ambos años. Toda manipulación de datos
-#debe realizarse en R (No en Excel) porque este proyecto puede ser auditado en una
-#etapa posterior.
+#### 4.- Some data has been provided in a CVS file, some in R vectors.
+#CVS file contains combined data from both years. All data manipulation
+#must be done in R (Not in Excel) because this project can be audited in a
+#post stage.
 
 
-#Mezcla entre ambos años (1960 y 2013)
+#Mix between both years (1960 and 2013)
 dfmerge <- data.frame(Country= Country_Code, Life_Expectancy_1960=Life_Expectancy_At_Birth_1960, Life_Expectancy_2013=Life_Expectancy_At_Birth_2013)
 
 head(stats)
@@ -77,23 +77,24 @@ head(dfmerge)
 merged <- merge(stats, dfmerge, by.x = "Country.Code", by.y = "Country")
 head(merged)
 
-#Marcos de datos por año
+#Data frames per year
 stats1960 <- stats[stats$Year == 1960,]
 stats2013 <- stats[stats$Year == 2013,]
 
-#Esperanza de vida 
+#Life expectancy
 dfmerge60 <- data.frame(Country= Country_Code, Life_Expectancy_1960=Life_Expectancy_At_Birth_1960)
 dfmerge13 <- data.frame(Country= Country_Code, Life_Expectancy_2013=Life_Expectancy_At_Birth_2013)
 
 
-#Merge por año
+#Merge by year
 merged60 <- merge(stats1960, dfmerge60, by.x = "Country.Code", by.y = "Country")
 merged13 <- merge(stats2013, dfmerge13, by.x = "Country.Code", by.y = "Country")
 
 
 
-#### 5.- También se le ha pedido que proporcione información sobre cómo se comparan los dos períodos. 
-#(Hint: Basicamente la expricacion de sus observaciones).
+#### 5.- You have also been asked to provide information on how the two periods compare.
+# (Hint: Basically the expression of your observations).
+
 #In the 1960 plot, it shows the relationship between the life expectancy of individuals and the fertility rate, which is the number of children per woman.
 
 #We can see that European countries are between 70 years of life expectancy and reach up to 75 years at most and Africa do not have as much life expectancy with a high fertility rate, because they do not have the resources that Europeans have. .
@@ -102,8 +103,8 @@ merged13 <- merge(stats2013, dfmerge13, by.x = "Country.Code", by.y = "Country")
 
 #In conclusion, it can be said that in countries the higher the life expectancy, the lower the fertility rate.
 
-Nota:
-Los archivos para realizar esta practica que son CountryRegionVectors.R y
-DataFrameEvaluation_Data.csv se encuentra en la carpeta de Google Drive
-compartida Recursos/Informacion_UI:
+#Note:
+ # The files to perform this practice are CountryRegionVectors.R and
+#DataFrameEvaluation_Data.csv is located in the Google Drive folder
+#Shared Resources / Information_UI:
 
