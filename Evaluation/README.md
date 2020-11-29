@@ -11,7 +11,7 @@ The directors of the movie review website are very happy with their previous ins
 
 The previous consultant had created a chart for them which is illustrated in the image below.
 
-![Grafica](/home/german/Apex/germanns/mineria/Data_Mining/Evaluation/127630004_391015135674608_5010534013072660560_n.png)
+![Grafica](/Data_Mining/Evaluation/127630004_391015135674608_5010534013072660560_n.png "Grafica")
 
 However, the R code used to create the graph has been lost and cannot be recovered.
 
@@ -89,7 +89,7 @@ plot + geom_jitter()+geom_boxplot(size=0.2,color="Black", alpha=0.4)+
 
 Graph obtained:
 
-![Grafica2](/home/german/Apex/germanns/mineria/Data_Mining/Evaluation/127785714_363567004602835_3119086932602925738_n.png "Grafica2")
+![Grafica2](/Data_Mining/Evaluation/127785714_363567004602835_3119086932602925738_n.png "Grafica2")
 
 **Conclusion**
 
