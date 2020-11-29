@@ -1,4 +1,4 @@
-# Examen Unidad 2
+# Evaluation Unit 2
 
 **Introduction**
 
@@ -11,7 +11,7 @@ The directors of the movie review website are very happy with their previous ins
 
 The previous consultant had created a chart for them which is illustrated in the image below.
 
-![Grafica](/home/german/Apex/germanns/mineria/Data_Mining/Evaluation/127630004_391015135674608_5010534013072660560_n.png "Grafica")
+![Grafica](/home/german/Apex/germanns/mineria/Data_Mining/Evaluation/127630004_391015135674608_5010534013072660560_n.png)
 
 However, the R code used to create the graph has been lost and cannot be recovered.
 
@@ -23,7 +23,7 @@ Track
 - Note that not all Genres (Genre) and studios (Studio) are used.
 - You will need to filter your dataframe after importing the csv file.
 
-**Desarrollo**
+**Development**
 
 
 **1.-** We start using the "getwd" function to check that the path we are working on is correct.
