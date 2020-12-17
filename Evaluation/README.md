@@ -1,8 +1,10 @@
 # Unit 3 Evaluation
-**Introduction**
+## Introduction
+
 In this practice we proceed to explain the code of evaluative practice for unit 3.
 
-Instructions
+**Instructions**
+
 Develop the following problem with R and RStudio to extract the knowledge that the problem requires.
 
 Implement the Naive Bayes classification model with the Social_Network_Ads.csv data set and using the e1071 library with the naiveBayes () function. Once the classifier is obtained, do the corresponding data visualization analysis.
@@ -10,6 +12,7 @@ Implement the Naive Bayes classification model with the Social_Network_Ads.csv d
 At the end of the development explain in detail what the Naive Bayes classification model consists of and also the detailed explanation corresponding to data visualization.
 
 **Naive Bayes model**
+
 Naive Bayes is a special kind of Machine Learning classification algorithm. It is based on a statistical classification technique called
 Bayes theorem.
 In this algorithm it is assumed that the predictor variables are independent of each other, which means that the presence of a certain characteristic in a data set is not at all related to the presence of any other characteristic that could be had.
@@ -102,6 +105,9 @@ contour(x1,x2, matrix(as.numeric(y_grid), length(x1),length(x2)), add = TRUE)
 points(grid_set, pch = '.', col = ifelse(y_grid ==1, 'springgreen3', 'tomato'))
 points(set, pch =21, bg = ifelse(set[, 3] == 1, 'green4', 'red3'))
 ```
+The graph is this:
+
+![R graphic](nbtrainingset.png)
 
 13.- Visualization of the results of the test suite with the above procedure, using the data of test_set.
 ```r
@@ -120,3 +126,6 @@ contour(x1,x2, matrix(as.numeric(y_grid), length(x1),length(x2)), add = TRUE)
 points(grid_set, pch = '.', col = ifelse(y_grid ==1, 'springgreen3', 'tomato'))
 points(set, pch =21, bg = ifelse(set[, 3] == 1, 'green4', 'red3'))
 ```
+The graph is this:
+
+![R graphic](nbtestset.png)
