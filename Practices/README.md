@@ -354,6 +354,61 @@ The graph is this:
 
 ![R graphic](decisiontree.png)
 
+
+# Practice 5 K-mens
+
+Importing the dataset
+```r
+dataset = read.csv('Mall_Customers.csv')
+dataset = dataset[4:5]
+```
+Command to place ourselves on the route on which we will work
+```r
+getwd()
+setwd("")
+```
+Using the elbow method to find the optimal number of clusters
+```r
+set.seed(6)
+wcss = vector()
+for (i in 1:10) wcss[i] = sum(kmeans(dataset, i)$withinss)
+plot(1:10,
+     wcss,
+     type = 'b',
+     main = paste('The Elbow Method'),
+     xlab = 'Number of clusters',
+     ylab = 'WCSS')
+```
+Fitting K-Means to the dataset
+```r
+set.seed(29)
+kmeans = kmeans(x = dataset, centers = 5)
+y_kmeans = kmeans$cluster
+```
+Graph obtained :
+
+![R graphic](Grafica1P5.png)
+
+install.packages('cluster')
+Visualising the clusters
+```r
+library(cluster)
+clusplot(dataset,
+         y_kmeans,
+         lines = 0,
+         shade = TRUE,
+         color = TRUE,
+         labels = 2,
+         plotchar = FALSE,
+         span = TRUE,
+         main = paste('Clusters of customers'),
+         xlab = 'Annual Income',
+         ylab = 'Spending Score')
+```        
+Graph obtained :
+
+![R graphic](Grafica2P5.png)
+
 # Practice 6 KNN
 
 We verify the path in which we are going to work, then we load the file "Social_Network_Ads.csv" and mark the dataset in [3: 5] to work with the data from column 3 to 5
