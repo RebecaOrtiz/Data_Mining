@@ -162,6 +162,114 @@ backwardElimination(training_set, SL)
 
 
 
+# Practice 3 Logistic Regression
+
+
+Command to place ourselves on the route on which we will work
+```r
+getwd()
+setwd("")
+```
+Importing the dataset
+```r
+dataset <- read.csv('Social_Network_Ads.csv')
+dataset <- dataset[, 3:5]
+```
+Install.packages('caTools')
+Splitting the dataset into the Training set and Test set
+
+```r
+library(caTools)
+set.seed(123)
+split <- sample.split(dataset$Purchased, SplitRatio = 0.75)
+training_set <- subset(dataset, split == TRUE)
+test_set <- subset(dataset, split == FALSE)
+```
+Feature scaling
+```r
+training_set[, 1:2] <- scale(training_set[, 1:2])
+test_set[, 1:2] <- scale(test_set[, 1:2])
+```
+Fitting Logistic Regression to Training set
+```r
+classifier = glm(formula = Purchased ~ .,
+                 family = binomial,
+                 data = training_set)
+```
+Predicting the Test set results
+```r
+prob_pred = predict(classifier, type = 'response', newdata = test_set[-3])
+prob_pred
+y_pred = ifelse(prob_pred > 0.5, 1, 0)
+y_pred
+```
+Making the Confusion Metrix
+```r
+cm = table(test_set[, 3], y_pred)
+cm
+```
+We load the "ggplot" library for the visualization of the data
+```r
+library(ggplot2)
+ggplot(training_set, aes(x=EstimatedSalary, y=Purchased)) + geom_point() + 
+  stat_smooth(method="glm", method.args=list(family="binomial"), se=FALSE)
+
+ggplot(training_set, aes(x=Age, y=Purchased)) + geom_point() + 
+  stat_smooth(method="glm", method.args=list(family="binomial"), se=FALSE)
+
+ggplot(test_set, aes(x=EstimatedSalary, y=Purchased)) + geom_point() + 
+  stat_smooth(method="glm", method.args=list(family="binomial"), se=FALSE)
+
+ggplot(test_set, aes(x=Age, y=Purchased)) + geom_point() + 
+  stat_smooth(method="glm", method.args=list(family="binomial"), se=FALSE)
+```
+install.packages('ElemStatLearn') 
+Visualization the Training set result
+```r
+library(ElemStatLearn)
+set = training_set
+X1 = seq(min(set[, 1]) - 1, max(set[, 1]) + 1, by = 0.01)
+X2 = seq(min(set[, 2]) - 1, max(set[, 2]) + 1, by = 0.01)
+grid_set = expand.grid(X1, X2)
+colnames(grid_set) = c('Age', 'EstimatedSalary')
+prob_set = predict(classifier, type = 'response', newdata = grid_set)
+y_grid = ifelse(prob_set > 0.5, 1, 0)
+plot(set[, -3],
+     main = 'Logistic Regression (Training set)',
+     xlab = 'Age', ylab = 'Estimated Salary',
+     xlim = range(X1), ylim = range(X2))
+contour(X1, X2, matrix(as.numeric(y_grid), length(X1), length(X2)), add = TRUE)
+points(grid_set, pch = '.', col = ifelse(y_grid == 1, 'springgreen3', 'tomato'))
+points(set, pch = 21, bg = ifelse(set[, 3] == 1, 'green4', 'red3'))
+```
+
+Graph obtained :
+
+![R graphic](Grafica1Logistic.png)
+
+Visualising the Test set results
+```r
+library(ElemStatLearn)
+set = test_set
+X1 = seq(min(set[, 1]) - 1, max(set[, 1]) + 1, by = 0.01)
+X2 = seq(min(set[, 2]) - 1, max(set[, 2]) + 1, by = 0.01)
+grid_set = expand.grid(X1, X2)
+colnames(grid_set) = c('Age', 'EstimatedSalary')
+prob_set = predict(classifier, type = 'response', newdata = grid_set)
+y_grid = ifelse(prob_set > 0.5, 1, 0)
+plot(set[, -3],
+     main = 'Logistic Regression (Test set)',
+     xlab = 'Age', ylab = 'Estimated Salary',
+     xlim = range(X1), ylim = range(X2))
+contour(X1, X2, matrix(as.numeric(y_grid), length(X1), length(X2)), add = TRUE)
+points(grid_set, pch = '.', col = ifelse(y_grid == 1, 'springgreen3', 'tomato'))
+points(set, pch = 21, bg = ifelse(set[, 3] == 1, 'green4', 'red3'))
+```
+
+Graph obtained :
+
+![R graphic](Grafica2Logistic.png)
+
 
 # Practice 4 Decision trees
 
