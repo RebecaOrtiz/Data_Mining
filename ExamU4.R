@@ -5,7 +5,7 @@ setwd("")
 
 # Importing the dataset
 dataset = read.csv('iris.csv')
-dataset = dataset[4:5]
+dataset = dataset[1:4]
 
 
 # Using the elbow method to find the optimal number of clusters
